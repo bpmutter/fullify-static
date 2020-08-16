@@ -65,8 +65,9 @@ const HeaderWrapper = styled.header`
   padding: 160px 0 80px 0;
   position: relative;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 5vw));
-  @media (max-width: ${props => props.theme.screen.md}) {
-  }
+  ${'' /* @media (max-width: ${props => props.theme.screen.md}) {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 2vw));
+  } */}
 `
 const Subtitle = styled.h5`
   font-size: 16px;

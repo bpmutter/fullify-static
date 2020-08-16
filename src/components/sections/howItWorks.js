@@ -40,8 +40,9 @@ const GetStarted = () => (
 export default GetStarted;
 
 const StyledSection = styled(Section)`
-  background-color: ${props => props.theme.color.background.light};
-  clip-path: polygon(0 0, 100% 14%, 100% 100%, 0% 100%);
+  background-color: ${props => props.theme.color.background.white};
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 5vw));
+  padding-top: 40px;
 `
 
 const HowItWorksContainer = styled(Container)`
@@ -49,12 +50,22 @@ const HowItWorksContainer = styled(Container)`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 80px 0 40px;
+  padding: 0 0 40px;
+  @media (max-width: ${props => props.theme.screen.sm}) {
+    ${"" /* margin-top: 30px; */}
+    position: relative;
+    zIndex: 0;
+  }
 `
 
 const HowItWorksTitle = styled.h3`
-  margin: 0 auto ;
+  margin: 0 auto;
   text-align: center;
+  @media (max-width: ${props => props.theme.screen.sm}) {
+    ${'' /* margin-top: 30px; */}
+    position: relative;
+    zIndex: 500;
+  }
 `
 const Subtitle = styled.span`
   ${props => props.theme.font_size.xxsmall}
@@ -84,6 +95,9 @@ const Step = styled.div`
   margin: 15px;
   box-shadow: rgba(110, 120, 152, 0.22) 0px 2px 10px 0px;
   background-color: ${props => props.theme.color.white.lessdark};
+  @media (max-width: ${props => props.theme.screen.sm}) {
+    width: 275px;
+  }
 `
 
 const HiwImgWrapper = styled.div`

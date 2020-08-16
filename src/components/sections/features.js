@@ -4,7 +4,7 @@ import styled from "styled-components"
 import { Section, Container } from "../global"
 
 const Features = () => (<>
-  <Section id="features">
+  <StyledSection id="features">
     <StyledContainer>
       <Subtitle>Features</Subtitle>
       <SectionTitle>Smart property management</SectionTitle>
@@ -46,11 +46,16 @@ const Features = () => (<>
         </FeatureItem>
       </FeaturesGrid>
     </StyledContainer>
-  </Section>
+  </StyledSection>
 
 </>)
 
-export default Features
+export default Features;
+
+const StyledSection = styled(Section)`
+  background-color: ${props => props.theme.color.background.light};
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 5vw));
+`
 
 const StyledContainer = styled(Container)``
 

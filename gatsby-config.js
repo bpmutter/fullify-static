@@ -8,6 +8,7 @@ module.exports = {
     description: `Fill your properties with the Fullify property management marketing solution.`,
     author: `Fullify, Inc.`,
   },
+  pathPrefix: "/fullify-static",
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
