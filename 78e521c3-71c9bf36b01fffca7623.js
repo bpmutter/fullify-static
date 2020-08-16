@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[3],{v7au:function(t,a,n){"use strict";n.d(a,"a",(function(){return r}));var i=n("Lnxd"),r=function(t){return Object(i.a)({tag:"svg",attr:{viewBox:"0 0 24 24"},child:[{tag:"g",attr:{},child:[{tag:"path",attr:{fill:"none",d:"M0 0h24v24H0z"}},{tag:"path",attr:{d:"M12 13.172l4.95-4.95 1.414 1.414L12 16 5.636 9.636 7.05 8.222z"}}]}]})(t)};r.displayName="RiArrowDownSLine"}}]);
+//# sourceMappingURL=78e521c3-71c9bf36b01fffca7623.js.map
