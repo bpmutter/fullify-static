@@ -2,40 +2,38 @@ import React from "react"
 import styled from "styled-components"
 import { graphql, useStaticQuery, Link } from "gatsby"
 import Img from "gatsby-image"
-
+import vectorImg from "../../images/product/rent-out.svg";
+import {RiArrowDownSLine} from "react-icons/ri";
 import { Container } from "../global"
 
 const Header = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      file(sourceInstanceName: { eq: "product" }, name: { eq: "green-skew" }) {
-        childImageSharp {
-          fluid(maxWidth: 1000) {
-            ...GatsbyImageSharpFluid_tracedSVG
-          }
-        }
-      }
-    }
-  `)
+  // const data = useStaticQuery(graphql`
+  //   query {
+  //     file(sourceInstanceName: { eq: "product" }, name: { eq: "couch" }) {
+  //       childImageSharp {
+  //         fluid(maxWidth: 1000) {
+  //           ...GatsbyImageSharpFluid
+  //         }
+  //       }
+  //     }
+  //   }
+   
+  // `)
 
   const handleSubmit = event => {
     event.preventDefault()
   }
 
-  return (
+  return (<>
     <HeaderWrapper id="top">
       <Container>
         <Flex>
           <HeaderTextGroup>
-            <Subtitle>Personal Finance</Subtitle>
-            <h1>
-              All your money,
-              <br />
-              one account
-            </h1>
+            <Subtitle>Fullify.io</Subtitle>
+            <h1>Fill your properties</h1>
             <h2>
-              We're building next generation personal finance tools. Sign up to
-              get early access.
+              We're building the next generation property management tool. Sign
+              up here for more info.
             </h2>
             <HeaderForm onSubmit={handleSubmit}>
               <HeaderInput placeholder="Your email" />
@@ -47,13 +45,17 @@ const Header = () => {
             </FormSubtitle>
           </HeaderTextGroup>
           <ImageWrapper>
-            <StyledImage fluid={data.file.childImageSharp.fluid} />
+            {/* <StyledImage fluid={data.file.childImageSharp.fluid} /> */}
+            <StyledImage src={vectorImg} alt="filling apartment building" />
             <br />
           </ImageWrapper>
         </Flex>
       </Container>
     </HeaderWrapper>
-  )
+    <IconWrapper>
+      <RiArrowDownSLine style={{size: 30, alignSelf: 'center'}}/>
+    </IconWrapper>
+  </>)
 }
 
 export default Header
@@ -196,13 +198,35 @@ const ImageWrapper = styled.div`
   }
 `
 
-const StyledImage = styled(Img)`
-  width: 500px;
+// const StyledImage = styled(Img)`
+//   width: 500px;
+//   @media (max-width: ${props => props.theme.screen.md}) {
+//     width: 400px;
+//   }
+//   @media (max-width: ${props => props.theme.screen.sm}) {
+//     width: 300px;
+//     display: none;
+//   }
+// `
+const StyledImage = styled.img`
+  width: 400px;
   @media (max-width: ${props => props.theme.screen.md}) {
     width: 400px;
   }
   @media (max-width: ${props => props.theme.screen.sm}) {
     width: 300px;
     display: none;
+  }
+`
+
+const IconWrapper = styled.div`
+  justify-content: center;
+  align-self: center;
+  display: flex;
+  width: 100%;
+  color: ${props => props.theme.color.accent};
+  font-size: 35px;
+  @media (max-width: ${props => props.theme.screen.md}) {
+    justify-self: center;
   }
 `

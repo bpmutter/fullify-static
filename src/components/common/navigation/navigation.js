@@ -15,7 +15,7 @@ import {
   ActionsContainer,
 } from "./style"
 
-const NAV_ITEMS = ["Features", "Product", "Pricing", ""]
+const NAV_ITEMS = ["How It Works", "Features", "", ""]
 
 export default class Navigation extends Component {
   state = {
@@ -38,7 +38,9 @@ export default class Navigation extends Component {
   }
 
   toggleMobileMenu = () => {
-    this.setState(prevState => ({ mobileMenuOpen: !prevState.mobileMenuOpen }))
+    this.setState(prevState => ({
+      mobileMenuOpen: !prevState.mobileMenuOpen,
+    }))
   }
 
   closeMobileMenu = () => {
@@ -48,8 +50,25 @@ export default class Navigation extends Component {
   }
 
   getNavAnchorLink = item => (
-    <AnchorLink href={`#${item.toLowerCase()}`} onClick={this.closeMobileMenu}>
+    <AnchorLink
+      href={`#${item
+        .toLowerCase()
+        .split(" ")
+        .join("-")}`}
+      onClick={this.closeMobileMenu}
+    >
       {item}
+    </AnchorLink>
+  )
+  getNavAnchorNode = (idText, node) => (
+    <AnchorLink
+      href={`#${idText
+        .toLowerCase()
+        .split(" ")
+        .join("-")}`}
+      onClick={this.closeMobileMenu}
+    >
+      {node}
     </AnchorLink>
   )
 
@@ -62,7 +81,9 @@ export default class Navigation extends Component {
         offset={-64}
       >
         {NAV_ITEMS.map(navItem => (
-          <NavItem key={navItem}>{this.getNavAnchorLink(navItem)}</NavItem>
+          <NavItem key={navItem}>
+            {this.getNavAnchorLink(navItem)}
+          </NavItem>
         ))}
       </Scrollspy>
     </NavListWrapper>
@@ -77,7 +98,7 @@ export default class Navigation extends Component {
           <Brand>
             <Scrollspy offset={-64} item={["top"]} currentClassName="active">
               <AnchorLink href="#top" onClick={this.closeMobileMenu}>
-                Finance
+                Fullify.io
               </AnchorLink>
             </Scrollspy>
           </Brand>
@@ -96,7 +117,11 @@ export default class Navigation extends Component {
 
           <Mobile hide>{this.getNavList({})}</Mobile>
           <ActionsContainer>
-            <button>Sign up</button>
+            <Scrollspy offset={-150} item={["sign-up"]} currentClassName="active">
+              <AnchorLink href="#sign-up" onClick={this.closeMobileMenu}>
+                <button>Sign up</button>
+              </AnchorLink>
+            </Scrollspy>
           </ActionsContainer>
         </StyledContainer>
         <Mobile>

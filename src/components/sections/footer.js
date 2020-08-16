@@ -3,9 +3,11 @@ import styled from "styled-components"
 
 import { Container } from "../global"
 
+const date = new Date();
+const currentYear = date.getFullYear();
 const Footer = () => (
   <FooterWrapper id="footer">
-    <FooterColumnContainer>
+    {/* <FooterColumnContainer>
       <FooterColumn>
         <span>Features</span>
         <ul>
@@ -34,9 +36,9 @@ const Footer = () => (
           <li>Instagram</li>
         </ul>
       </FooterColumn>
-    </FooterColumnContainer>
+    </FooterColumnContainer> */}
     <BrandContainer>
-      <Logo>Finance</Logo>
+      <Logo>© Fullify {currentYear}</Logo>
     </BrandContainer>
   </FooterWrapper>
 )
