@@ -7,18 +7,17 @@ import {RiArrowDownSLine} from "react-icons/ri";
 import { Container } from "../global"
 
 const Header = () => {
-  // const data = useStaticQuery(graphql`
-  //   query {
-  //     file(sourceInstanceName: { eq: "product" }, name: { eq: "couch" }) {
-  //       childImageSharp {
-  //         fluid(maxWidth: 1000) {
-  //           ...GatsbyImageSharpFluid
-  //         }
-  //       }
-  //     }
-  //   }
-   
-  // `)
+  const data = useStaticQuery(graphql`
+    query {
+      file(sourceInstanceName: { eq: "product" }, name: { eq: "select-house" }) {
+        childImageSharp {
+          fluid(maxWidth: 1000) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    } 
+  `)
 
   const handleSubmit = event => {
     event.preventDefault()
@@ -45,7 +44,7 @@ const Header = () => {
             </FormSubtitle>
           </HeaderTextGroup>
           <ImageWrapper>
-            {/* <StyledImage fluid={data.file.childImageSharp.fluid} /> */}
+            <StyledImg fluid={data.file.childImageSharp.fluid} />
             <StyledImage src={vectorImg} alt="filling apartment building" />
             <br />
           </ImageWrapper>
@@ -199,16 +198,16 @@ const ImageWrapper = styled.div`
   }
 `
 
-// const StyledImage = styled(Img)`
-//   width: 500px;
-//   @media (max-width: ${props => props.theme.screen.md}) {
-//     width: 400px;
-//   }
-//   @media (max-width: ${props => props.theme.screen.sm}) {
-//     width: 300px;
-//     display: none;
-//   }
-// `
+const StyledImg = styled(Img)`
+  width: 500px;
+  @media (max-width: ${props => props.theme.screen.md}) {
+    width: 400px;
+  }
+  @media (max-width: ${props => props.theme.screen.sm}) {
+    width: 300px;
+    display: none;
+  }
+`
 const StyledImage = styled.img`
   width: 400px;
   @media (max-width: ${props => props.theme.screen.md}) {
